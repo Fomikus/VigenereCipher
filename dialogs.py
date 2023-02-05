@@ -237,7 +237,7 @@ class Login(QMainWindow):
             account_data = None
             for k in accounts:
                 if len(k) >= 2:
-                    if k[0] == login.encode():
+                    if k[0] == login.replace(' ', '').encode():
                         account_data = k
             if account_data is not None:
                 if account_data[1] == cipher.encrypt(password, 'login').encode():
