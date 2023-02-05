@@ -72,11 +72,11 @@ class SignUp(QDialog):
                         QtWidgets.QMessageBox.information(self, 'Внимание!', 'Пользователь с таким именем уже существует')
                     else:
                         with open('login.txt', 'ab+') as f:
-                            f.write(f"{login} {cipher.encrypt(password, 'login')}\n".encode())
+                            f.write(f"{login.replace(' ', '')} {cipher.encrypt(password, 'login')}\n".encode())
                         self.close()
                 else:
                     with open('login.txt', 'ab+') as f:
-                        f.write(f"{login} {cipher.encrypt(password, 'login')}\n".encode())
+                        f.write(f"{login.replace(' ', '')} {cipher.encrypt(password, 'login')}\n".encode())
                     self.close()
             else:
                 QtWidgets.QMessageBox.information(self, 'Внимание!', 'Введённые пароли не совпадают!')
